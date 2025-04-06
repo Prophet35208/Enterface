@@ -38,20 +38,15 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -103,6 +98,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.textBoxOrgan = new System.Windows.Forms.TextBox();
+            this.textBoxStruct = new System.Windows.Forms.TextBox();
+            this.textBoxDeyet = new System.Windows.Forms.TextBox();
+            this.textBoxOper = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -199,12 +198,18 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ООО \"СтройМаш\"",
+            "ООО \"ТвояМашинПочинилз\"",
+            "ООО \"КредитВКредит\""});
             this.comboBox1.Location = new System.Drawing.Point(218, 95);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(350, 24);
             this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -215,14 +220,6 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Организация";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(853, 95);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(109, 25);
-            this.textBox3.TabIndex = 10;
             // 
             // label7
             // 
@@ -236,12 +233,18 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Бухгалтерия",
+            "Кулинарный цех",
+            "Линия раздачи"});
             this.comboBox2.Location = new System.Drawing.Point(218, 130);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(350, 24);
             this.comboBox2.TabIndex = 11;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -252,23 +255,6 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "по ОКПО";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.Location = new System.Drawing.Point(648, 130);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(200, 25);
-            this.label9.TabIndex = 15;
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(853, 130);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(109, 25);
-            this.textBox4.TabIndex = 14;
             // 
             // label10
             // 
@@ -282,12 +268,18 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Продукты пищевые",
+            "Напитки",
+            "Изделия табачные"});
             this.comboBox3.Location = new System.Drawing.Point(218, 165);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(350, 24);
             this.comboBox3.TabIndex = 16;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -298,14 +290,6 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "вид деятельности по ОКДП";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(853, 165);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(109, 25);
-            this.textBox5.TabIndex = 18;
             // 
             // label12
             // 
@@ -319,12 +303,18 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Производство пищевых продуктов",
+            "Производство напитков",
+            "Производство табачных изделий"});
             this.comboBox4.Location = new System.Drawing.Point(218, 200);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(350, 24);
             this.comboBox4.TabIndex = 20;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -335,14 +325,6 @@
             this.label13.TabIndex = 23;
             this.label13.Text = "вид операции";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(853, 200);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(109, 25);
-            this.textBox6.TabIndex = 22;
             // 
             // tableLayoutPanel1
             // 
@@ -972,12 +954,52 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Подписи";
             // 
+            // textBoxOrgan
+            // 
+            this.textBoxOrgan.Location = new System.Drawing.Point(853, 97);
+            this.textBoxOrgan.Name = "textBoxOrgan";
+            this.textBoxOrgan.ReadOnly = true;
+            this.textBoxOrgan.Size = new System.Drawing.Size(109, 20);
+            this.textBoxOrgan.TabIndex = 36;
+            this.textBoxOrgan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxStruct
+            // 
+            this.textBoxStruct.Location = new System.Drawing.Point(853, 132);
+            this.textBoxStruct.Name = "textBoxStruct";
+            this.textBoxStruct.ReadOnly = true;
+            this.textBoxStruct.Size = new System.Drawing.Size(109, 20);
+            this.textBoxStruct.TabIndex = 37;
+            this.textBoxStruct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxDeyet
+            // 
+            this.textBoxDeyet.Location = new System.Drawing.Point(853, 167);
+            this.textBoxDeyet.Name = "textBoxDeyet";
+            this.textBoxDeyet.ReadOnly = true;
+            this.textBoxDeyet.Size = new System.Drawing.Size(109, 20);
+            this.textBoxDeyet.TabIndex = 38;
+            this.textBoxDeyet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxOper
+            // 
+            this.textBoxOper.Location = new System.Drawing.Point(853, 202);
+            this.textBoxOper.Name = "textBoxOper";
+            this.textBoxOper.ReadOnly = true;
+            this.textBoxOper.Size = new System.Drawing.Size(109, 20);
+            this.textBoxOper.TabIndex = 39;
+            this.textBoxOper.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(984, 660);
+            this.Controls.Add(this.textBoxOper);
+            this.Controls.Add(this.textBoxDeyet);
+            this.Controls.Add(this.textBoxStruct);
+            this.Controls.Add(this.textBoxOrgan);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
@@ -986,19 +1008,14 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
@@ -1050,20 +1067,15 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -1115,6 +1127,10 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.TextBox textBoxOrgan;
+        private System.Windows.Forms.TextBox textBoxStruct;
+        private System.Windows.Forms.TextBox textBoxDeyet;
+        private System.Windows.Forms.TextBox textBoxOper;
     }
 }
 

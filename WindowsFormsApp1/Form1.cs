@@ -44,5 +44,90 @@ namespace WindowsFormsApp1
                     break;
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox1.SelectedItem.ToString(); 
+
+            switch (str)
+            {
+                case "ООО \"СтройМаш\"":
+                    textBoxOrgan.Text = "00001";
+                    break;
+                case "ООО \"ТвояМашинПочинилз\"":
+                    textBoxOrgan.Text = "00002";
+                    break;
+                case "ООО \"КредитВКредит\"":
+                    textBoxOrgan.Text = "00003";
+                    break;
+                default:
+                    textBox1.Text = "";
+                    break;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox2.SelectedItem.ToString();
+
+
+            switch (str)
+            {
+                case "Бухгалтерия":
+                    textBoxStruct.Text = "00001";
+                    break;
+                case "Кулинарный цех":
+                    textBoxStruct.Text = "00002";
+                    break;
+                case "Линия раздачи":
+                    textBoxStruct.Text = "00003";
+                    break;
+                default:
+                    textBoxStruct.Text = "";
+                    break;
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox3.SelectedItem.ToString();
+
+            switch (str)
+            {
+                case "Продукты пищевые":
+                    textBoxDeyet.Text = "00001";
+                    break;
+                case "Напитки":
+                    textBoxDeyet.Text = "00002";
+                    break;
+                case "Изделия табачные":
+                    textBoxDeyet.Text = "00003";
+                    break;
+                default:
+                    textBoxDeyet.Text = "";
+                    break;
+            }
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox4.SelectedItem.ToString();
+
+            switch (str)
+            {
+                case "Производство пищевых продуктов":
+                    textBoxOper.Text = "00001";
+                    break;
+                case "Производство напитков":
+                    textBoxOper.Text = "00002";
+                    break;
+                case "Производство табачных изделий":
+                    textBoxOper.Text = "00003";
+                    break;
+                default:
+                    textBoxOper.Text = "";
+                    break;
+            }
+        }
     }
 }
