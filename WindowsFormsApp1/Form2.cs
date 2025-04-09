@@ -15,6 +15,11 @@ namespace WindowsFormsApp1
         public Form2()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
+            comboBox4.SelectedIndex = 0;
         }
+
     }
 }

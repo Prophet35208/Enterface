@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -394,11 +395,84 @@ namespace WindowsFormsApp1
                     worksheet.Cells["A7"].Value = comboBox1.Text;
                     worksheet.Cells["CA7"].Value = textBoxOrgan.Text;
                     worksheet.Cells["A9"].Value = comboBox2.Text;
-                    worksheet.Cells["CA10"].Value = comboBox1.Text;
-                    worksheet.Cells["A7"].Value = comboBox1.Text;
+                    worksheet.Cells["CA10"].Value = textBoxDeyet.Text;
+                    worksheet.Cells["CA11"].Value = textBoxOper.Text;
+
+                    worksheet.Cells["BA13"].Value = textBox1.Text;
+                    worksheet.Cells["BL13"].Value = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+                    worksheet.Cells["CA11"].Value = textBoxOper.Text;
+
+                    // Шапка таблицы
+                    DateTime selectedDateTime = dateTimePicker2.Value;
+                    worksheet.Cells["AI17"].Value = selectedDateTime.Day;
+                    worksheet.Cells["AL17"].Value = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(selectedDateTime.Month);
+                    worksheet.Cells["AR17"].Value = selectedDateTime.Year;
+
+                    selectedDateTime = dateTimePicker4.Value;
+                    worksheet.Cells["BZ17"].Value = selectedDateTime.Day;
+                    worksheet.Cells["CD17"].Value = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(selectedDateTime.Month);
+                    worksheet.Cells["CJ17"].Value = selectedDateTime.Year;
+
+                    // Сама таблица
+
+                    int rowCount = dataGridView1.Rows.Count;
+                    int[] columnIndices = { 0, 3, 13, 16, 20, 24, 28, 33, 39, 49, 51, 56, 60, 66, 70, 74, 81 };
+                    string[] excelColumnNames = { "A", "D", "N", "Q", "U", "Y", "AC", "AH", "AN", "AX", "BB", "BH", "BL", "BQ", "BU", "BY", "CF" };
+                    for (int row = 0; row < rowCount; row++)
+                    {
+                        if (!dataGridView1.Rows[row].IsNewRow)
+                        {
+                            for (int i = 0; i < columnIndices.Length; i++)
+                            {
+                                int col = columnIndices[i];
+
+                                // Получаем значение ячейки
+                                object cellValue = dataGridView1.Rows[row].Cells[i].Value;
+                                string excelColumnName = excelColumnNames[i];
+
+                                if (cellValue == null || string.IsNullOrWhiteSpace(cellValue.ToString()))
+                                {
+                                    worksheet.Cells[excelColumnName + (row + 23)].Value = "X"; 
+                                }
+                                else
+                                {
+                                    worksheet.Cells[excelColumnName + (row + 23)].Value = cellValue?.ToString(); 
+                                }
 
 
-                    // 5. Сохраняем изменения в новый файл
+                            }
+                        }
+                    }
+
+                    // Заполняем Итого
+                    worksheet.Cells["AH31"].Value = textBox4.Text;
+                    worksheet.Cells["AN31"].Value = textBox9.Text;
+                    worksheet.Cells["AX31"].Value = textBox6.Text;
+                    worksheet.Cells["BB31"].Value = textBox7.Text;
+                    worksheet.Cells["BH31"].Value = textBox11.Text;
+                    worksheet.Cells["BL31"].Value = textBox10.Text;
+                    worksheet.Cells["BQ31"].Value = textBox13.Text;
+                    worksheet.Cells["BU31"].Value = textBox12.Text;
+                    worksheet.Cells["BY31"].Value = textBox8.Text;
+
+
+                    string[] strNames = { "AH31", "AN31", "AX31", "BB31", "BH31", "BL31", "BQ31", "BU31", "BY31", };
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (textBoxes[i].Text == "0")
+                            worksheet.Cells[strNames[i]].Value = "X";
+                 
+                        else
+                            worksheet.Cells[strNames[i]].Value = textBoxes[i].Text;
+                    }
+
+                    // Футер
+                    worksheet.Cells["R32"].Value = "Барышев И.В.";
+                    worksheet.Cells["BC32"].Value = "Сигизмунд И.И.";
+                    worksheet.Cells["S34"].Value = "Руководитель";
+                    worksheet.Cells["AX34"].Value = "Наполеонов О.О.";
+
                     excelPackage.SaveAs(new FileInfo("Out.XLS"));
 
                     MessageBox.Show($"Данные успешно экспортированы в Excel файл. ", "Экспорт завершен", MessageBoxButtons.OK, MessageBoxIcon.Information);
